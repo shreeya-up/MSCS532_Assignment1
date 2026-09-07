@@ -1,0 +1,26 @@
+from pathlib import Path
+
+
+namespace = {}
+exec(Path(__file__).with_name("inertion_sort").read_text(), namespace)
+insertion_sort = namespace["insertion_sort"]
+
+
+def test_descending_order():
+	values = [5, 1, 4, 2, 8]
+	insertion_sort(values)
+	if values == [8, 5, 4, 2, 1]:
+		return "Descending order test passed"
+	raise AssertionError("Descending order test failed")
+
+def test_duplicates():
+	values = [4, 2, 4, 1, 2]
+	insertion_sort(values)
+	if values == [4, 4, 2, 2, 1]:
+		return "Duplicates test passed"
+	raise AssertionError("Duplicates test failed")
+
+if __name__ == "__main__":
+	test_descending_order()
+	test_duplicates()
+	
