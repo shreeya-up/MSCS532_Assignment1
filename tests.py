@@ -2,9 +2,8 @@ from pathlib import Path
 
 
 namespace = {}
-exec(Path(__file__).with_name("inertion_sort").read_text(), namespace)
+exec(Path(__file__).with_name("inertion_sort.py").read_text(), namespace)
 insertion_sort = namespace["insertion_sort"]
-
 
 def test_descending_order():
 	values = [5, 1, 4, 2, 8]
